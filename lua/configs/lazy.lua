@@ -1,13 +1,37 @@
+local highlights = require "highlights"
+
 return {
   defaults = { lazy = true },
   install = { colorscheme = { "nvchad" } },
 
   ui = {
-    icons = {
-      ft = "",
-      lazy = "󰂠 ",
-      loaded = "",
-      not_loaded = "",
+  theme = "gruvbox",
+  hl_override = highlights.override,
+  hl_add = highlights.add,
+
+  transparency = true,
+
+  statusline = {
+    theme = "vscode_colored",
+    overriden_modules = function(modules)
+        table.remove(modules, 3)
+        table.remove(modules, 9)
+    end
+  },
+
+  nvdash = {
+    enabled = false,
+  },
+
+  cheatsheet = {
+    enabled = false,
+  },
+
+  icons = {
+    ft = "",
+    lazy = "󰂠 ",
+    loaded = "",
+    not_loaded = "",
     },
   },
 
@@ -20,10 +44,6 @@ return {
         "getscriptPlugin",
         "gzip",
         "logipat",
-        "netrw",
-        "netrwPlugin",
-        "netrwSettings",
-        "netrwFileHandlers",
         "matchit",
         "tar",
         "tarPlugin",
